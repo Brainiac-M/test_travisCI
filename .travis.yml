@@ -15,9 +15,9 @@ before_script:
 
 script:
   - docker --version # print the version for logging 
-  - docker build -t  test_travisCI .
-  - docker tag test_travisCI YOUR_DOCKER_HUB/test_travisCI:latest #yep yep
+  - docker build -t  test_travis_ci .
+  - docker tag test_travis_ci YOUR_DOCKER_HUB/test_travis_ci_docker:latest #yep yep
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin #hiding my credentials 
-  - docker push YOUR_DOCKER_HUB/test_travisCI
+  - docker push YOUR_DOCKER_HUB/test_travis_ci_docker
